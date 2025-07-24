@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" >
+<listeners>
+<listener class-name = "utilities.ExtentReportManager"/>
+</listeners>
+  <test thread-count="5" name="Test">
+  <parameter name="os" value="windows"/>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+     <!--  <class name="testCases.TC_001_AccountRegistrationTest"/>  
+           <class name="testCases.TC_002_LoginTest"/> -->
+           <class name="testCases.TC_003_LoginDDT"/> 
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+<!--
+for generating Report i added the listner lag before the test method and inside the listner i specified the attribute 
+and by secifying name of the class as class-name , we can generate report.
+
+question- How can we generate report using ExtentReportManager?
+ans-  To generate report using ExtentReportManager we make use of ItestListner interface
+     provided by testNg . By impelemnting this interface in a separate class we can achieve this.
+     - ItestListner contains some menthods these are
+     1-onStart()
+     2-onFinish()
+     3-onTestSuccess()
+     4-onTestFailure()
+     5-onTestSkipped()
+     etc
+  
+  inside these methods we use ExtenentReportManager to 
+      -start the report.
+      -log the test result.
+      -attach screenshots.
+      -flush the report at the end .
+  
+  and finally by adding listner tag in .xml file we generate report.
+  
+ Question : How can we run failure tests .
+ -->
